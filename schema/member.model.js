@@ -22,7 +22,7 @@ const memberSchema = new mongoose.Schema(
             default: "USER",
             enum : {
                 values: exports.member_type_enums,
-                message: "{VALUE is not among permitted values"
+                message: "{VALUE} is not among permitted values"
             }
         },
         mb_status: {
@@ -31,9 +31,10 @@ const memberSchema = new mongoose.Schema(
             default: "ACTIVE",
             enum : {
                 values: exports.member_status_enums,
-                message: "{VALUE is not among permitted values"
+                message: "{VALUE} is not among permitted values"
             }
         },
+
         mb_full_name: {
             type: String,
             required:false,
@@ -41,6 +42,10 @@ const memberSchema = new mongoose.Schema(
         mb_address: {
             type: String,
             required:false,
+        },
+        mb_decription: {
+            type: String,
+            required: false
         },
         mb_image: {
             type: String,
@@ -51,7 +56,38 @@ const memberSchema = new mongoose.Schema(
             required:false,
             default:0,
         },
-         
-    }    
-);
-module.exports = mongoose.model("Model", memberSchema);
+        mb_top: {
+            type: String,
+            required: false,
+            default: "N",
+            enums:{
+                values: ordinary_enums,
+                message: exports.ordinary_enums
+            },
+        },
+
+        mb_views: {
+            type: Number,
+            required: false,
+            default: 0,
+        },
+        mb_likes: {
+            type: Number,
+            required:false,
+            default:0,
+        },
+        mb_follow_cnt: {
+            type: Number,
+            required: false,
+            default: 0,
+        },
+        mb_subscriber_cnt: {
+            type: Number,
+            required:false,
+            default: 0,
+        },
+    },
+    {timestamps:true}
+
+    );
+module.exports = mongoose.mosdel("Model", memberSchema);
