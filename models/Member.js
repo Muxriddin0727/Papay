@@ -1,5 +1,5 @@
 class Member {
-    constructor(){}
+    constructor() {}
 }
 
 module.exports = Member;

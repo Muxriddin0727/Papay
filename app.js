@@ -4,8 +4,8 @@ const app = express();
 const router = require("./router");
 
 //MongoDb chaqirish kodi
-const db = require("./server").db();
-const mongodb = require("mongodb");
+//const db = require("./server").db();
+//const mongodb = require("mongodb");
 
 //1 Kirish code
 app.use(express.static("public"));
