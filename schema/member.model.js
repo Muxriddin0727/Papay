@@ -61,8 +61,8 @@ const memberSchema = new mongoose.Schema(
             required: false,
             default: "N",
             enums:{
-                values: ordinary_enums,
-                message: exports.ordinary_enums
+                values: exports.ordinary_enums,
+                message: "{VALUE} is not among permitted values"
             },
         },
 
