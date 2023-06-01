@@ -9,9 +9,10 @@ try {
     const member = new Member();
     const new_member = await member.signupData(data);
 
-    res.send("done");
+    res.json({states: 'succed', data: new_member});
 } catch(err) {
     console.log(`ERROR, cont/signup, ${err.message}`);
+    res.json({states: 'fail', messeage:err.message});
 }
 };
 
