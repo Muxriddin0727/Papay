@@ -2,6 +2,19 @@ const Member = require("../models/Member");
 
 let restaurantController = module.exports;
 
+
+restaurantController.getMyRestaurantData = async (req, res) => {
+  try {
+    console.log("GET: cont/getMyRestaurantData");
+//to do Get my restaurant products
+
+    res.render("restaurant-menu");
+  } catch (err) {
+    console.log(`ERROR, cont/getMyRestaurantData`);
+    res.json({ state: "fail", message: err.message });
+  }
+};
+
 restaurantController.getSignupMyRestaurant = async (req, res) => {
   try {
     console.log("GET: cont/getSignupMyRestaurant");
@@ -19,9 +32,10 @@ restaurantController.signupProcess = async (req, res) => {
       member = new Member(),
       new_member = await member.signupData(data);
 
-    // SESSION AUTH
+      //session
+      req.session.member = new_member;
+      res.redirect ("/resto/products/menu");
 
-    res.json({ state: "succeed", data: new_member });
   } catch (err) {
     console.log(`ERROR, cont/signup`);
     res.json({ state: "fail", message: err.message });
@@ -45,14 +59,19 @@ restaurantController.loginProcess = async (req, res) => {
       member = new Member(),
       result = await member.loginData(data);
 
-    res.json({ state: "succeed", data: result });
+      req.session.member = result;
+      req.session.save(function () {
+        res.redirect("/resto/products/menu");
+      });
+
+  
   } catch (err) {
     console.log(`ERROR, cont/login`);
     res.json({ state: "fail", message: err.message });
   }
 };
 
-restaurantController.logoutProcess = (req, res) => {
+restaurantController.logout = (req, res) => {
   console.log("GET: cont/logout");
   res.send("logout sahifasidasiz");
 };
