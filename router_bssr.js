@@ -16,6 +16,8 @@ router_bssr
 
 router_bssr.get("/logout", restaurantController.logout);
 
+router_bssr.get("/check-me", restaurantController.checkSessions);
+
 router_bssr.get("/products/menu", restaurantController.getMyRestaurantData);
 
 module.exports = router_bssr;
