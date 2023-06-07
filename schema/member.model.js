@@ -20,7 +20,7 @@ const memberSchema = new mongoose.Schema(
             required:true,
             select:false
         },
-        mb_types: {
+        mb_type: {
             type: String,
             required: false,
             default: "USER",
@@ -39,10 +39,7 @@ const memberSchema = new mongoose.Schema(
             }
         },
 
-        mb_full_name: {
-            type: String,
-            required:false,
-        },
+       
         mb_address: {
             type: String,
             required:false,
