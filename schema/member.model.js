@@ -91,4 +91,4 @@ const memberSchema = new mongoose.Schema(
     {timestamps:true}
 
     );
-module.exports = mongoose.model("Model", memberSchema);
+module.exports = mongoose.model("Member", memberSchema);
