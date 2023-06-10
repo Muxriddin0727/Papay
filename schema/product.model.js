@@ -60,7 +60,7 @@ const productSchema = new mongoose.Schema({
     enum: {
       values: product_volume_enums,
       message: "{VALUE} is not among permitted enum values",
-    }
+    },
   },
   product_description: { type: String, required: true},
   product_images: {type: Array, required: false, default: []},
