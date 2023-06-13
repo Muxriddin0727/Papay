@@ -51,7 +51,7 @@ const productSchema = new mongoose.Schema({
       message: "{VALUE} is not among permitted enum values",
     },
   },
-  product_volume: {
+   product_volume: {
     type: String,
     default: 1,
     required: function() {
@@ -79,11 +79,11 @@ const productSchema = new mongoose.Schema({
     ref: "Member",
     required: false
   }
-}, {timeseries: true});  // createdAt, updatedAt
+}, {timestamps: true});  // createdAt, updatedAt
 
 productSchema.index( //uniqueness uchun index ishlatildi
   {restaurant_mb_id: 1, product_name: 1, product_size: 1,product_volume: 1}, // Texas-De-Brazilcoca-cola
-  {unique: true} //1 degani birga degan manoda ishlatildi
+  {unique: true} //1 degani bir marta ruxsat degan manoda ishlatildi
 );
 
 

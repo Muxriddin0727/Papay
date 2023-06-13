@@ -4,7 +4,7 @@ const Definer = require ("../lib/mistake");
 const ProductModel = require("../schema/product.model");
 class Product {
     constructor(){
-        this.productModel = ProductModel;
+        this.productModel = ProductModel;    //bu class
     }
 
     async getAllProductsDataResto(member) {
@@ -45,10 +45,14 @@ class Product {
             mb_id = shapeIntoMongooseObjectId(mb_id);
 
             const result = await this.productModel
-              .findOneAndUpdate({ _id: id, restaurant_mb_id: mb_id }, updated_data, {
+              .findOneAndUpdate({ 
+                _id: id, 
+                restaurant_mb_id: mb_id 
+            }, 
+                updated_data, {
                 runValidators: true, 
                 lean: true,                             //ozgargan qiymatni kormoqchiman
-                returnDocument: "after", // before
+                returnDocument: "after", // before      //yaxshiroq organ shu blockni
               })
               .exec();
       

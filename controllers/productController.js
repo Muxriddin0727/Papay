@@ -24,7 +24,7 @@ productController.addNewProduct = async (req, res) => {
     data.product_images = req.files.map((ele) => {
       return ele.path;
     });
-
+//savol
     const result = await product.addNewProductData(data, req.member);
 
       const html = `<script>
@@ -41,7 +41,8 @@ productController.updateChosenProduct = async (req, res) => {
   try {
     console.log("POST: cont/updateChosenProduct");
     const product = new Product();
-    const id = req.params.id;
+    const id = req.params.id.trim();
+   // console.log("req.params.id", req.params.id);
     const result = await product.updateChosenProductData(
     id,
     req.body, 
