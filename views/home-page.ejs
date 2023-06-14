@@ -14,7 +14,7 @@
               <a class="nav-link" href="/resto/sign-up">Signup</a>
             </li>
             <li class="nav-item" style="cursor: pointer">
-              <a class="nav-link" href="/resto/login">Login</a>
+              <a class="nav-link"  href="/resto/login">Login</a>
             </li>
             <% } else if(member.mb_type === 'ADMIN') { %>
             <li class="nav-item" style="cursor: pointer">
@@ -107,7 +107,7 @@
 
       let breathAnimation = anime({
         begin: function () {
-          for (var i = 0; i < pathLength; i++) {
+          for (let i = 0; i < pathLength; i++) {
             aimations.push(
               anime({
                 targets: spherePathEls[i],
@@ -125,7 +125,7 @@
         },
         update: function (ins) {
           aimations.forEach(function (animation, i) {
-            var percent =
+            let percent =
               (1 - Math.sin(i * 0.35 + 0.0022 * ins.currentTime)) / 2;
             animation.seek(animation.duration * percent);
           });
