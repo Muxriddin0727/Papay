@@ -88,7 +88,6 @@
                 type="file"
                 id="input_file"
                 name="restaurant_img"
-                placeholder="passwordni tasdiqlash"
                 class="upload-hidden form-control-file restaurant_img"
               />
             </div>
@@ -148,7 +147,7 @@
       mb_password == "" ||
       mb_confirm_password == ""
     ) {
-      alert("Iltimos hamma ma'lumotlarni kiriting1!");
+      alert("Iltimos hamma ma'lumotlarni kiriting!");
       return false;
     } else if (mb_password !== mb_confirm_password) {
       alert(`Iltimos passwordni to'g'ri kiriting!`);
@@ -164,4 +163,4 @@
   }
 </script>
 
-<%- include('includes/footer') %> s
+<%- include('includes/footer') %> 
